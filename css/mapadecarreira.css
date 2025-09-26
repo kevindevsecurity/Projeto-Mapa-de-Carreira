@@ -1,0 +1,246 @@
+/* ----- CONFIGURAÇÕES GERAIS E PALETA DE CORES ----- */
+:root {
+  --navy-blue: #001f3f;
+  --dark-gray: #333333;
+  --medium-gray: #808080;
+  --light-gray: #f4f4f4;
+  --white: #ffffff;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ----- CABEÇALHO ----- */
+header {
+  display: flex;
+  align-items: center;
+  background-color: var(--navy-blue);
+  color: var(--white);
+  padding: 30px;
+  border-radius: 8px 8px 0 0;
+}
+
+header img {
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  margin-right: 30px;
+  border: 3px solid var(--white);
+}
+
+header .info h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+header .info p {
+  margin: 5px 0 15px;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+header .links a {
+  margin-right: 20px;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: opacity 0.3s;
+}
+
+header .links a:hover {
+    opacity: 0.8;
+}
+
+header .links i {
+    margin-right: 8px;
+}
+
+/* ----- SEÇÃO PRAZER EM CONHECER ----- */
+.about-section {
+  padding: 30px;
+  border-bottom: 1px solid #ddd;
+}
+
+.about-section h2 {
+  font-size: 22px;
+  color: var(--navy-blue);
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.about-section p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border: 2px solid var(--navy-blue);
+  color: var(--navy-blue);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: var(--navy-blue);
+  color: var(--white);
+}
+
+/* ----- CONTEÚDO PRINCIPAL (MAPA E SKILLS) ----- */
+.content-wrapper {
+    display: flex;
+    padding: 30px;
+}
+
+/* ----- COLUNA ESQUERDA: MAPA DE CARREIRA ----- */
+.career-map {
+  flex: 3;
+  padding-right: 30px;
+}
+
+.section-title {
+  font-size: 22px;
+  color: var(--navy-blue);
+  margin-top: 0;
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--navy-blue);
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 35px;
+  padding-bottom: 35px;
+  border-left: 3px solid var(--medium-gray);
+  /* Propriedades para preparar a animação */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.timeline-item.visible {
+  /* Estado final da animação */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-item:last-child {
+    border-left: 3px solid transparent;
+    padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -11px;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--navy-blue);
+  border: 3px solid var(--white);
+}
+
+.timeline-item h3 {
+  margin-top: -5px;
+  margin-bottom: 8px;
+  color: var(--dark-gray);
+  font-size: 18px;
+}
+
+.timeline-item p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.timeline-item h4 {
+    font-size: 14px;
+    color: var(--navy-blue);
+    margin: 15px 0 10px 0;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.skills-list li::before {
+    content: "•";
+    color: var(--navy-blue);
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* ----- COLUNA DIREITA: SKILLS ----- */
+.sidebar {
+  flex: 2;
+  padding-left: 30px;
+  border-left: 1px solid #ddd;
+}
+
+.skills-group {
+    margin-bottom: 20px;
+    /* Propriedades para preparar a animação */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.skills-group.visible {
+    /* Estado final da animação */
+    opacity: 1;
+    transform: translateY(0);
+}
+    
+.skills-group p {
+    margin: 0 0 8px 0;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.progress-bar {
+    height: 12px;
+    background-color: var(--light-gray);
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--navy-blue);
+    border-radius: 10px 0 0 10px;
+    width: 0; /* Começa com largura 0 */
+    transition: width 1.5s ease-in-out; /* Define a animação da largura */
+}
